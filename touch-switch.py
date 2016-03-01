@@ -15,7 +15,7 @@ dutyCycle = 100
 blinkFreq = 50
 pwm = GPIO.PWM(LED_PIN, blinkFreq)
 
-def initswitch():
+def initSwitch():
     print "等待操作触摸开关，按Ctrl-C退出程序"
     
     while True:
@@ -28,7 +28,7 @@ def initswitch():
             changeBrightness()
 
 def toggle():
-    global LEDStatus, pwm, dutyCycle
+    global LEDStatus, pwm, dutyCycle, blinkFreq
     if LEDStatus == 0:
         print "开灯"
         pwm.start(dutyCycle)
@@ -37,6 +37,7 @@ def toggle():
         print "关灯"
         pwm.stop()
         LEDStatus = 0
+        blinkFreq = 50
 
 def changeBrightness():
     global LEDStatus, pwm, dutyCycle
@@ -76,7 +77,7 @@ def timekeeping():
 
 if __name__ == '__main__':
     try:
-        initswitch()
+        initSwitch()
     except KeyboardInterrupt:
         GPIO.cleanup()
         print "退出"
