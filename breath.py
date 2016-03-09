@@ -1,13 +1,14 @@
 #!/usr/bin/env python
+# encoding: utf-8
 
 import RPi.GPIO as GPIO
 import time
 
-LED_PIN = 12
+LED_PIN = input("Pin值：")
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
 
-pwm = GPIO.PWM(12, 50)
+pwm = GPIO.PWM(LED_PIN, 50)
 pwm.start(0)
 
 try:
