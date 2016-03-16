@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 import RPi.GPIO as GPIO
-import commands
 import time
 
 class Digits(object):
